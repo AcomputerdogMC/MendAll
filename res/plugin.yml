@@ -1,5 +1,5 @@
 name: MendAll
-version: 0.0.1
+version: 0.0.2
 description: Allows a user to repair all mending tools in bulk
 author: acomputerdog
 main: net.acomputerdog.plugin.PluginMendAll

@@ -39,23 +39,25 @@ public class PluginMendAll extends JavaPlugin {
 
     private void mendPlayer(Player player) {
         PlayerInventory inventory = player.getInventory();
+        ExperienceManager exp = new ExperienceManager(player); //use ExperienceManager to make sure EXP is updated correctly
         for (ItemStack item : inventory.getContents()) { //loop through each item in inventory
             if (item != null) {
-                if (player.getTotalExperience() == 0) { //stop when player runs out of XP
+                if (exp.getTotalExperience() == 0) { //stop when player runs out of XP
                     break;
                 }
-                int durabilityNeeded = item.getType().getMaxDurability() - item.getDurability();
+
+                int durabilityNeeded = item.getDurability();
                 if (durabilityNeeded > 0) { //make sure item is damaged
                     if (item.containsEnchantment(Enchantment.MENDING)) { //make sure item has mending
                         int xpNeeded = durabilityNeeded / 2;
-                        if (player.getTotalExperience() < xpNeeded) { //if player does not have enough xp adjust amount of given durability and taken XP to match
-                            xpNeeded = player.getTotalExperience();
+                        if (exp.getTotalExperience() < xpNeeded) { //if player does not have enough xp adjust amount of given durability and taken XP to match
+                            xpNeeded = exp.getTotalExperience();
                             durabilityNeeded = xpNeeded * 2;
                         }
 
                         //repair item and take XP
-                        player.setTotalExperience(player.getTotalExperience() - xpNeeded);
-                        item.setDurability((short) (item.getDurability() + durabilityNeeded));
+                        item.setDurability((short) (item.getDurability() - durabilityNeeded));
+                        exp.setTotalExperience(exp.getTotalExperience() - xpNeeded);
                     }
                 }
             }
