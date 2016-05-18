@@ -40,21 +40,23 @@ public class PluginMendAll extends JavaPlugin {
     private void mendPlayer(Player player) {
         PlayerInventory inventory = player.getInventory();
         for (ItemStack item : inventory.getContents()) { //loop through each item in inventory
-            if (player.getTotalExperience() == 0) { //stop when player runs out of XP
-                break;
-            }
-            int durabilityNeeded = item.getType().getMaxDurability() - item.getDurability();
-            if (durabilityNeeded > 0) { //make sure item is damaged
-                if (item.containsEnchantment(Enchantment.MENDING)) { //make sure item has mending
-                    int xpNeeded = durabilityNeeded / 2;
-                    if (player.getTotalExperience() < xpNeeded) { //if player does not have enough xp adjust amount of given durability and taken XP to match
-                        xpNeeded = player.getTotalExperience();
-                        durabilityNeeded = xpNeeded * 2;
-                    }
+            if (item != null) {
+                if (player.getTotalExperience() == 0) { //stop when player runs out of XP
+                    break;
+                }
+                int durabilityNeeded = item.getType().getMaxDurability() - item.getDurability();
+                if (durabilityNeeded > 0) { //make sure item is damaged
+                    if (item.containsEnchantment(Enchantment.MENDING)) { //make sure item has mending
+                        int xpNeeded = durabilityNeeded / 2;
+                        if (player.getTotalExperience() < xpNeeded) { //if player does not have enough xp adjust amount of given durability and taken XP to match
+                            xpNeeded = player.getTotalExperience();
+                            durabilityNeeded = xpNeeded * 2;
+                        }
 
-                    //repair item and take XP
-                    player.setTotalExperience(player.getTotalExperience() - xpNeeded);
-                    item.setDurability((short)(item.getDurability() + durabilityNeeded));
+                        //repair item and take XP
+                        player.setTotalExperience(player.getTotalExperience() - xpNeeded);
+                        item.setDurability((short) (item.getDurability() + durabilityNeeded));
+                    }
                 }
             }
         }
