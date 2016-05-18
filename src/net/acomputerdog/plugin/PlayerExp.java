@@ -4,17 +4,19 @@ AUTHOR: Dev_Richard (https://www.spigotmc.org/members/dev_richard.38792/)
 DESC: A simple and easy to use class that can get and set a player's total experience points.
 Feel free to use this class in both public and private plugins, however if you release your
 plugin please link to this gist publicly so that others can contribute and benefit from it.
+
+Source available at https://gist.github.com/warriordog/6160a1ed45134265fb30b8d224da0426
 */
 
 import org.bukkit.entity.Player;
 
 import java.math.BigDecimal;
 
-public class ExperienceManager {
+public class PlayerExp {
 
     private Player player;
 
-    public ExperienceManager(Player player) {
+    public PlayerExp(Player player) {
         this.player = player;
     }
 

@@ -39,7 +39,7 @@ public class PluginMendAll extends JavaPlugin {
 
     private void mendPlayer(Player player) {
         PlayerInventory inventory = player.getInventory();
-        ExperienceManager exp = new ExperienceManager(player); //use ExperienceManager to make sure EXP is updated correctly
+        PlayerExp exp = new PlayerExp(player); //use PlayerExp to make sure EXP is updated correctly
         for (ItemStack item : inventory.getContents()) { //loop through each item in inventory
             if (item != null) {
                 if (exp.getTotalExperience() == 0) { //stop when player runs out of XP
