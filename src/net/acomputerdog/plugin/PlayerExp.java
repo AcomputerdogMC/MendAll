@@ -50,8 +50,6 @@ public class PlayerExp {
             int experienceNeeded = (2 * level) + 7;
             float experience = (float) remainder / (float) experienceNeeded;
             experience = round(experience, 2);
-            //System.out.println("xpForLevel: " + xpForLevel);
-            //System.out.println(experience);
 
             //Set Everything
             player.setLevel(level);
@@ -67,8 +65,6 @@ public class PlayerExp {
             int experienceNeeded = (5 * level) - 38;
             float experience = (float) remainder / (float) experienceNeeded;
             experience = round(experience, 2);
-            //System.out.println("xpForLevel: " + xpForLevel);
-            //System.out.println(experience);
 
             //Set Everything
             player.setLevel(level);
@@ -84,8 +80,6 @@ public class PlayerExp {
             int experienceNeeded = (9 * level) - 158;
             float experience = (float) remainder / (float) experienceNeeded;
             experience = round(experience, 2);
-            //System.out.println("xpForLevel: " + xpForLevel);
-            //System.out.println(experience);
 
             //Set Everything
             player.setLevel(level);
