@@ -1,0 +1,17 @@
+name: MendAll
+version: 0.0.0
+description: Allows a user to repair all mending tools in bulk
+author: acomputerdog
+main: net.acomputerdog.plugin.PluginMendAll
+
+commands:
+  mend:
+    description: mends items
+    permission: mendall.mend
+    usage: Incorrect usage!  Use /mend
+    aliases: [mendall, menditems]
+
+permissions:
+  mendall.mend:
+    description: Allows use of /mend
+    default: true
