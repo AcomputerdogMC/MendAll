@@ -3,6 +3,7 @@ version: ${version}
 description: Allows a user to repair all mending tools in bulk
 author: acomputerdog
 main: net.acomputerdog.plugin.PluginMendAll
+api-version: 1.13
 
 commands:
   mend:
